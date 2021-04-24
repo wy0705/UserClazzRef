@@ -55,4 +55,6 @@ public class CollegeDao {
         String sql = "UPDATE user SET name=?,phone=?,password=?,grade=?,address=? WHERE id=?";
         return jdbcTemplate.update(sql,college.getCid(),college.getName(),college.getNnscore_line(),college.getNscore_line(),college.getScore_line());
     }
+
+
 }

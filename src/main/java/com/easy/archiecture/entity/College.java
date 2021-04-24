@@ -3,7 +3,6 @@ package com.easy.archiecture.entity;
 import java.io.Serializable;
 
 public class College implements Serializable {
-
     //private static final long serialVersionUID
 
     private int cid;
@@ -11,6 +10,24 @@ public class College implements Serializable {
     private int nnscore_line;
     private int nscore_line;
     private int score_line;
+    private int eeNumber;
+    private boolean difficulty;
+
+    public int getEeNumber() {
+        return eeNumber;
+    }
+
+    public void setEeNumber(int eeNumber) {
+        this.eeNumber = eeNumber;
+    }
+
+    public boolean isDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(boolean difficulty) {
+        this.difficulty = difficulty;
+    }
 
     public int getCid() {
         return cid;

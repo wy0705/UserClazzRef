@@ -11,7 +11,16 @@ public class College implements Serializable {
     private int nscore_line;
     private int score_line;
     private int eeNumber;
+    private int eeNumberMax;
     private boolean difficulty;
+
+    public int getEeNumberMax() {
+        return eeNumberMax;
+    }
+
+    public void setEeNumberMax(int eeNumberMax) {
+        this.eeNumberMax = eeNumberMax;
+    }
 
     public int getEeNumber() {
         return eeNumber;
@@ -72,18 +81,24 @@ public class College implements Serializable {
     public College() {
     }
 
-    public College(int cid, String name, int nnscore_line, int nscore_line, int score_line) {
+    public College(String name, int nnscore_line, int nscore_line, int score_line, int eeNumber, int eeNumberMax, boolean difficulty) {
+        this.name = name;
+        this.nnscore_line = nnscore_line;
+        this.nscore_line = nscore_line;
+        this.score_line = score_line;
+        this.eeNumber = eeNumber;
+        this.eeNumberMax = eeNumberMax;
+        this.difficulty = difficulty;
+    }
+
+    public College(int cid, String name, int nnscore_line, int nscore_line, int score_line, int eeNumber, int eeNumberMax, boolean difficulty) {
         this.cid = cid;
         this.name = name;
         this.nnscore_line = nnscore_line;
         this.nscore_line = nscore_line;
         this.score_line = score_line;
-    }
-
-    public College(String name, int nnscore_line, int nscore_line, int score_line) {
-        this.name = name;
-        this.nnscore_line = nnscore_line;
-        this.nscore_line = nscore_line;
-        this.score_line = score_line;
+        this.eeNumber = eeNumber;
+        this.eeNumberMax = eeNumberMax;
+        this.difficulty = difficulty;
     }
 }

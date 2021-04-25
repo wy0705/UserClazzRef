@@ -8,7 +8,7 @@ public class User implements Serializable {
     private String phone;
     private String password;
     private String address;
-    private int grade;
+    private int gender;
 
     public User() {
     }
@@ -54,11 +54,11 @@ public class User implements Serializable {
     }
 
     public int getGrade() {
-        return grade;
+        return gender;
     }
 
     public void setGrade(int grade) {
-        this.grade = grade;
+        this.gender = grade;
     }
 
     public User(int uid, String name, String phone, String password, String address, int grade) {
@@ -67,7 +67,7 @@ public class User implements Serializable {
         this.phone = phone;
         this.password = password;
         this.address = address;
-        this.grade = grade;
+        this.gender = grade;
     }
 
     public User(String name, String phone, String password, String address, int grade) {
@@ -75,6 +75,6 @@ public class User implements Serializable {
         this.phone = phone;
         this.password = password;
         this.address = address;
-        this.grade = grade;
+        this.gender = grade;
     }
 }

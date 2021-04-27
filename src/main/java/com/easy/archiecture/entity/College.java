@@ -13,6 +13,42 @@ public class College implements Serializable {
     private int eeNumber;
     private int eeNumberMax;
     private boolean difficulty;
+    private String address;
+    private String type;
+    private String feature;
+    private String details;
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getFeature() {
+        return feature;
+    }
+
+    public void setFeature(String feature) {
+        this.feature = feature;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
 
     public int getEeNumberMax() {
         return eeNumberMax;
@@ -81,17 +117,7 @@ public class College implements Serializable {
     public College() {
     }
 
-    public College(String name, int nnscore_line, int nscore_line, int score_line, int eeNumber, int eeNumberMax, boolean difficulty) {
-        this.name = name;
-        this.nnscore_line = nnscore_line;
-        this.nscore_line = nscore_line;
-        this.score_line = score_line;
-        this.eeNumber = eeNumber;
-        this.eeNumberMax = eeNumberMax;
-        this.difficulty = difficulty;
-    }
-
-    public College(int cid, String name, int nnscore_line, int nscore_line, int score_line, int eeNumber, int eeNumberMax, boolean difficulty) {
+    public College(int cid, String name, int nnscore_line, int nscore_line, int score_line, int eeNumber, int eeNumberMax, boolean difficulty, String address, String type, String feature, String details) {
         this.cid = cid;
         this.name = name;
         this.nnscore_line = nnscore_line;
@@ -100,5 +126,23 @@ public class College implements Serializable {
         this.eeNumber = eeNumber;
         this.eeNumberMax = eeNumberMax;
         this.difficulty = difficulty;
+        this.address = address;
+        this.type = type;
+        this.feature = feature;
+        this.details = details;
+    }
+
+    public College(String name, int nnscore_line, int nscore_line, int score_line, int eeNumber, int eeNumberMax, boolean difficulty, String address, String type, String feature, String details) {
+        this.name = name;
+        this.nnscore_line = nnscore_line;
+        this.nscore_line = nscore_line;
+        this.score_line = score_line;
+        this.eeNumber = eeNumber;
+        this.eeNumberMax = eeNumberMax;
+        this.difficulty = difficulty;
+        this.address = address;
+        this.type = type;
+        this.feature = feature;
+        this.details = details;
     }
 }

@@ -17,7 +17,7 @@ public class CollegeDao {
 
     public College findByCollege(int cid){
         final College college=new College();
-        String sql="select cid,name,nnscore_line,nscore_line,score_line,eeNumber,difficulty,eeNumberMax from college where cid=?";
+        String sql="select cid,name,nnscore_line,nscore_line,score_line,eeNumber,difficulty,eeNumberMax,address,type,feature,datails from college where cid=?";
         jdbcTemplate.query(sql, new Object[]{cid}, new RowCallbackHandler() {
             public void processRow(ResultSet rs) throws SQLException {
                 college.setCid(rs.getInt(1));
@@ -35,7 +35,7 @@ public class CollegeDao {
 
     public College findByName(String name){
         final College college=new College();
-        String sql="select cid,name,nnscore_line,nscore_line,score_line,eeNumber,difficulty,eeNumberMax from college where name=?";
+        String sql="select cid,name,nnscore_line,nscore_line,score_line,eeNumber,difficulty,eeNumberMax,address,type,feature,datails from college where name=?";
         jdbcTemplate.query(sql, new Object[]{name}, new RowCallbackHandler() {
             public void processRow(ResultSet rs) throws SQLException {
                 college.setCid(rs.getInt(1));
@@ -52,14 +52,14 @@ public class CollegeDao {
     }
 
     public int insertCollege(College college) {
-        String sql = "INSERT INTO college (cid,name,nnscore_line,nscore_line,score_line,eeNumber,eeNumberMax) VALUES (?,?,?,?,?,?,?)";
-        return jdbcTemplate.update(sql,college.getCid(),college.getName(),college.getNnscore_line(),college.getNscore_line(),college.getScore_line(),college.getEeNumber(),college.getEeNumberMax());
+        String sql = "INSERT INTO college (cid,name,nnscore_line,nscore_line,score_line,eeNumber,eeNumberMax,address,type,feature,datails) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        return jdbcTemplate.update(sql,college.getCid(),college.getName(),college.getNnscore_line(),college.getNscore_line(),college.getScore_line(),college.getEeNumber(),college.getEeNumberMax(),college.getAddress(),college.getType(),college.getFeature(),college.getDetails());
     }
 
 
     public int updateCollege(College college) {
-        String sql = "UPDATE user SET name=?,phone=?,password=?,grade=?,address=?,eeNumber=?,difficulty=?,eeNumberMax=? WHERE id=?";
-        return jdbcTemplate.update(sql,college.getName(),college.getNnscore_line(),college.getNscore_line(),college.getScore_line(),college.getEeNumber(),college.isDifficulty(),college.getEeNumberMax(),college.getCid());
+        String sql = "UPDATE user SET name=?,phone=?,password=?,grade=?,address=?,eeNumber=?,difficulty=?,eeNumberMax=?,address=?,type=?,feature=?,datails=? WHERE id=?";
+        return jdbcTemplate.update(sql,college.getName(),college.getNnscore_line(),college.getNscore_line(),college.getScore_line(),college.getEeNumber(),college.isDifficulty(),college.getEeNumberMax(),college.getAddress(),college.getType(),college.getFeature(),college.getDetails(),college.getCid());
     }
 
 

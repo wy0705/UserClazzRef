@@ -20,7 +20,7 @@ public class UserDao {
 
     public User findByUser(int uid){
         final User user=new User();
-        String sql="select uid,name,phone,grender,address from user where uid=?";
+        String sql="select uid,name,phone,grade,address from user where uid=?";
         jdbcTemplate.query(sql, new Object[]{uid}, new RowCallbackHandler() {
             public void processRow(ResultSet rs) throws SQLException {
                 user.setUid(rs.getInt(1));
@@ -36,7 +36,7 @@ public class UserDao {
 
     public User findByNname(String name){
         final User user=new User();
-        String sql="select uid,name,phone,gender,address from user where name=?";
+        String sql="select uid,name,phone,grade,address from user where name=?";
         jdbcTemplate.query(sql, new Object[]{name}, new RowCallbackHandler() {
             public void processRow(ResultSet rs) throws SQLException {
                 user.setUid(rs.getInt(1));
@@ -51,7 +51,7 @@ public class UserDao {
 
     public User findByNameAndPassword(String name,String password){
         final User user=new User();
-        String sql="select uid,name,phone,gender,address from user where name=? and password=?";
+        String sql="select uid,name,phone,grade,address from user where name=? and password=?";
         jdbcTemplate.query(sql, new Object[]{name, password}, new RowCallbackHandler() {
             public void processRow(ResultSet rs) throws SQLException {
                 user.setUid(rs.getInt(1));
@@ -65,13 +65,13 @@ public class UserDao {
     }
 
     public int insertUser(User user) {
-        String sql = "INSERT INTO user (uid,name,phone,password,gender,address) VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO user (uid,name,phone,password,grade,address) VALUES (?,?,?,?,?,?)";
         return jdbcTemplate.update(sql,user.getUid(),user.getName(),user.getPhone(),user.getPassword(),user.getGrade(),user.getAddress());
     }
 
 
     public int updateUser(User user) {
-        String sql = "UPDATE user SET name=?,phone=?,password=?,gender=?,address=? WHERE id=?";
+        String sql = "UPDATE user SET name=?,phone=?,password=?,grade=?,address=? WHERE id=?";
         return jdbcTemplate.update(sql,user.getName(),user.getPhone(),user.getPassword(),user.getGrade(),user.getAddress(),user.getUid());
     }
 

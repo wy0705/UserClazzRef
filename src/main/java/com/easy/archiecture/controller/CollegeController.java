@@ -2,13 +2,11 @@ package com.easy.archiecture.controller;
 
 import com.easy.archiecture.dao.CollegeDao;
 import com.easy.archiecture.entity.College;
+import com.easy.archiecture.entity.User;
 import com.easy.archiecture.service.CollegeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class CollegeController {
@@ -23,6 +21,17 @@ public class CollegeController {
             return "添加成功";
         }
         return "未添加成功";
+    }
+
+    //查看大学信息
+    @RequestMapping(value = "find_name", method = RequestMethod.GET)
+    @ResponseBody
+    public String registry(@RequestParam String collegename) {
+        College college = collegeService.findByName(collegename);
+        if (college != null) {
+            return college.getName();
+        }
+        return "未找到该用户";
     }
     //update学校信息
     //计算某学校今年的分数线

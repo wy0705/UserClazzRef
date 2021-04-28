@@ -52,6 +52,14 @@ public class UserServiceImpl {
         return userDao.updateUser(user);
     }
 
+    public int insertUser(User user){
+        return userDao.insertUser(user);
+    }
+
+    public int updateUser(User user){
+        return userDao.updateUser(user);
+    }
+
 
 
 }

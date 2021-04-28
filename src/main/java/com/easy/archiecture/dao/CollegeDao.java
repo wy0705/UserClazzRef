@@ -5,10 +5,12 @@ import com.easy.archiecture.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 @Repository
 public class CollegeDao {
@@ -50,6 +52,37 @@ public class CollegeDao {
         });
         return college;
     }
+
+    public List<Integer> findByAddress(String address){
+        String sql = "SELECT cid FROM college WHERE address=?";
+        return jdbcTemplate.query(sql, new Object[]{address}, new RowMapper<Integer>() {
+
+            public Integer mapRow(ResultSet resultSet, int i) throws SQLException {
+                return resultSet.getInt(1);
+            }
+        });
+    }
+
+    public List<Integer> findByType(String type){
+        String sql = "SELECT cid FROM college WHERE type=?";
+        return jdbcTemplate.query(sql, new Object[]{type}, new RowMapper<Integer>() {
+
+            public Integer mapRow(ResultSet resultSet, int i) throws SQLException {
+                return resultSet.getInt(1);
+            }
+        });
+    }
+
+    public List<Integer> findByFeature(String feature){
+        String sql = "SELECT cid FROM college WHERE feature=?";
+        return jdbcTemplate.query(sql, new Object[]{feature}, new RowMapper<Integer>() {
+
+            public Integer mapRow(ResultSet resultSet, int i) throws SQLException {
+                return resultSet.getInt(1);
+            }
+        });
+    }
+
 
     public int insertCollege(College college) {
         String sql = "INSERT INTO college (cid,name,nnscore_line,nscore_line,score_line,eeNumber,eeNumberMax,address,type,feature,datails) VALUES (?,?,?,?,?,?,?,?,?,?,?)";

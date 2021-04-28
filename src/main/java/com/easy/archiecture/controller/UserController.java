@@ -16,6 +16,17 @@ public class UserController {
     @Autowired
     private UserServiceImpl userService;
 
+    @RequestMapping(value="logon",method = RequestMethod.POST)
+    @ResponseBody
+    public String logon(@RequestBody User user){
+        int count = userService.insertUser(user);
+        if (count != 0) {
+            return "添加成功";
+        }
+        return "不能添加该用户";
+
+    }
+
     @RequestMapping(value = "login",method = RequestMethod.POST)
     @ResponseBody
     public String login(String username,String password){

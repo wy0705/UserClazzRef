@@ -8,7 +8,16 @@ public class User implements Serializable {
     private String phone;
     private String password;
     private String address;
-    private int gender;
+    private int grade;
+    private int admin_college;
+
+    public int getAdmin_college() {
+        return admin_college;
+    }
+
+    public void setAdmin_college(int admin_college) {
+        this.admin_college = admin_college;
+    }
 
     public User() {
     }
@@ -54,20 +63,11 @@ public class User implements Serializable {
     }
 
     public int getGrade() {
-        return gender;
+        return grade;
     }
 
     public void setGrade(int grade) {
-        this.gender = grade;
-    }
-
-    public User(int uid, String name, String phone, String password, String address, int grade) {
-        this.uid = uid;
-        this.name = name;
-        this.phone = phone;
-        this.password = password;
-        this.address = address;
-        this.gender = grade;
+        this.grade = grade;
     }
 
     public User(String name, String phone, String password, String address, int grade) {
@@ -75,6 +75,16 @@ public class User implements Serializable {
         this.phone = phone;
         this.password = password;
         this.address = address;
-        this.gender = grade;
+        this.grade = grade;
+    }
+
+    public User(int uid, String name, String phone, String password, String address, int grade, int admin_college) {
+        this.uid = uid;
+        this.name = name;
+        this.phone = phone;
+        this.password = password;
+        this.address = address;
+        this.grade = grade;
+        this.admin_college = admin_college;
     }
 }
